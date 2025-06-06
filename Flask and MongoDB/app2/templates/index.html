@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Data</title>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-group {
+            max-width: 600px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .alert {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Submit Data to MongoDB Atlas</h2>
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <label for="data">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="data">Email:</label>
+                <input type="text" class="form-control mt-2" id="email" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+        {% if error %}
+            <div class="alert">Error occured - {{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
